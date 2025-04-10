@@ -1,0 +1,17 @@
+credentials:
+  usernames:
+    user1: # <--- نام کاربری اول (این را به نام کاربری دلخواه تغییر دهید)
+      email: user1@example.com # <--- ایمیل کاربر (اختیاری، می‌تواند خالی باشد)
+      name: user1 # <--- نام نمایشی کاربر
+      password: $2b$12$LIpzE6bQUAtdgyEJtBnEg.em06RI47GL.ioa2JqmajWTJ4.P6cF9G # <--- رمز عبور هش شده کاربر (بسیار مهم)
+    user2: # <--- نام کاربری دوم
+      email: user2@example.com
+      name: user2
+      password: $2b$12$AU5MAPStKGv4vlWcEzHrROXnS34/oeqFTN9ACqacunrTB4bGy/6vu # <--- رمز عبور هش شده کاربر دوم
+# --- می‌توانید کاربران بیشتری به همین شکل اضافه کنید ---
+cookie:
+  expiry_days: 30 # <--- مدت زمان اعتبار کوکی ورود (به روز)
+  key: some_signature_key # <--- کلید امضای کوکی (باید یک رشته مخفی و منحصر به فرد باشد)
+  name: some_cookie_name # <--- نام کوکی در مرورگر
+preauthorized:
+  emails: [] # <--- برای استفاده‌های پیشرفته‌تر (فعلاً خالی بگذارید)
