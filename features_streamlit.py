@@ -10,8 +10,6 @@ import geopandas as gpd # For shapefile handling
 import zipfile # For unzipping shapefiles
 import io # For handling file streams
 import plotly.graph_objects as go # For maps
-import folium
-from streamlit_folium import st_folium
 
 # --- Configuration ---
 st.set_page_config(layout="wide", page_title="داشبورد حسابداری آب")

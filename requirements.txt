@@ -1,4 +1,8 @@
-streamlit
+streamlit==1.44.1
 pandas
-altair
+numpy
 plotly
+yaml
+streamlit_authenticator==0.1.5
+geopandas
+zipfile
