@@ -21,13 +21,13 @@ try:
 except NameError:
     BASE_DIR = os.getcwd() # Fallback
 
-DAM_DATA_PATH = os.path.join(BASE_DIR, 'data/Dam_6Apr25.txt')
+DAM_DATA_PATH = os.path.join(BASE_DIR, 'data/Dam_13Apr25.txt')
 GW_DATA_PATH = os.path.join(BASE_DIR, 'data/GW_6Apr25.txt')
-TRANSFER_DATA_PATH = os.path.join(BASE_DIR, 'data/Transfer_Data.txt')
-WASTEWATER_DATA_PATH = os.path.join(BASE_DIR, 'data/Wastewater_Data.txt')
+TRANSFER_DATA_PATH = os.path.join(BASE_DIR, 'data/Transfer_13Apr25.txt')
+WASTEWATER_DATA_PATH = os.path.join(BASE_DIR, 'Wastewater_Data.txt')
 
-names = ['John Smith', 'Rebecca Briggs']
-usernames = ['jsmith', 'rbriggs']
+names = ['Mahdi Mohammadnezhad', 'Mohammadjavad Rezvanpoor']
+usernames = ['Mahdi', 'Mohammadjavad']
 passwords = ['123', '456']
 
 hashed_passwords = stauth.Hasher(passwords).generate()
@@ -168,14 +168,14 @@ if authentication_status:
     # --- Define Mappings and Constants ---
     TRANSFER_DAM_NAMES = ['سد دوستی']
 
-    dam_expected_cols = ['Year', 'Name of Dam', 'تراز انتهای سال آبی', 'تراز ابتدای سال آبی', 'حجم انتهای سال آبی', 'حجم ابتدای سال آبی', 'ورودی', 'سایر', 'كل', 'نشتي', 'پمپاژ', 'زهكش', 'تبخير', 'تخلیه رسوب', 'دريچه آبگيري', 'سرريز', 'کل', 'Type of Use', 'ID', 'Value', 'sharestan']
-    dam_rename_map = {'Year': 'Water_Year_Str', 'Name of Dam': 'Dam_Name', 'تراز انتهای سال آبی': 'Level_End_Year', 'تراز ابتدای سال آبی': 'Level_Start_Year', 'حجم انتهای سال آبی': 'Volume_End_Year', 'حجم ابتدای سال آبی': 'Volume_Start_Year', 'ورودی': 'Inflow', 'سایر': 'Other_Input', 'كل': 'Total_Input', 'نشتي': 'Leakage', 'پمپاژ': 'Pumping_Out', 'زهكش': 'Drainage', 'تبخير': 'Evaporation', 'تخلیه رسوب': 'Sediment_Discharge', 'دريچه آبگيري': 'Intake_Discharge', 'سرريز': 'Spillway_Discharge', 'کل': 'Total_Outflow', 'Type of Use': 'Usage_Type', 'ID': 'SubBasin_ID', 'Value': 'Dam_Extraction_Value', 'sharestan': 'County'}
+    dam_expected_cols = ['Year', 'Name of Dam', 'تراز انتهاي سال آبي', 'تراز ابتداي سال آبي', 'حجم انتهاي سال آبي', 'حجم ابتداي سال آبي', 'ورودي', 'ساير', 'كل', 'نشتي', 'پمپاژ', 'زهكش', 'تبخير', 'تخليه رسوب', 'دريچه آبگيري', 'سرريز', 'کل', 'Type of Use', 'ID', 'Value', 'sharestan']
+    dam_rename_map = {'Year': 'Water_Year_Str', 'Name of Dam': 'Dam_Name', 'تراز انتهاي سال آبي': 'Level_End_Year', 'تراز ابتداي سال آبي': 'Level_Start_Year', 'حجم انتهاي سال آبي': 'Volume_End_Year', 'حجم ابتداي سال آبي': 'Volume_Start_Year', 'ورودي': 'Inflow', 'ساير': 'Other_Input', 'كل': 'Total_Input', 'نشتي': 'Leakage', 'پمپاژ': 'Pumping_Out', 'زهكش': 'Drainage', 'تبخير': 'Evaporation', 'تخليه رسوب': 'Sediment_Discharge', 'دريچه آبگيري': 'Intake_Discharge', 'سرريز': 'Spillway_Discharge', 'کل': 'Total_Outflow', 'Type of Use': 'Usage_Type', 'ID': 'SubBasin_ID', 'Value': 'Dam_Extraction_Value', 'sharestan': 'County'}
 
     gw_expected_cols = ['سال آبي', 'اشتراک', 'امور', 'اشتراک برق', 'محدوده مطالعاتي', 'شهرستان', 'MA_XUTM', 'MA_YUTM', 'عمق چاه', 'دبي', 'ساعت کارکرد', 'اضافه کسربرداشت', 'تخليه مترمکعب', 'نوع چاه', 'نوع مصرف', 'نيرو محرکه', 'وضعيت چاه', 'برداشت واقعي', 'کنتور هوشمند', 'conat', 'ID']
     gw_rename_map = {'سال آبي': 'Water_Year_Str', 'اشتراک': 'Subscription_ID', 'امور': 'Department', 'اشتراک برق': 'Electricity_Subscription', 'محدوده مطالعاتي': 'Study_Area', 'شهرستان': 'County', 'MA_XUTM': 'X_UTM', 'MA_YUTM': 'Y_UTM', 'عمق چاه': 'Well_Depth_m', 'دبي': 'Flow_Rate_ls', 'ساعت کارکرد': 'Operating_Hours', 'اضافه کسربرداشت': 'Over_Under_Extraction_m3', 'تخليه مترمکعب': 'Discharge_m3', 'نوع چاه': 'Well_Type', 'نوع مصرف': 'Usage_Type', 'نيرو محرکه': 'Power_Source', 'وضعيت چاه': 'Well_Status', 'برداشت واقعي': 'Actual_Extraction_m3', 'کنتور هوشمند': 'Smart_Meter', 'conat': 'Coordinates_Text', 'ID': 'SubBasin_ID'}
 
-    transfer_expected_cols = ['Water_Year', 'Source_Name', 'Extraction_MCM', 'Usage_Type', 'County', 'ID', 'Renewable_Status']
-    transfer_rename_map = {'Water_Year': 'Water_Year_Str', 'Source_Name': 'Transfer_Source_Name', 'Extraction_MCM': 'Extraction_MCM', 'Usage_Type': 'Usage_Type', 'County': 'County', 'ID': 'SubBasin_ID', 'Renewable_Status': 'Renewable_Status'}
+    transfer_expected_cols = ['Water_Year', 'Source_Name', 'Extraction_MCM', 'Usage_Type', 'County', 'ID']
+    transfer_rename_map = {'Water_Year': 'Water_Year_Str', 'Source_Name': 'Transfer_Source_Name', 'Extraction_MCM': 'Extraction_MCM', 'Usage_Type': 'Usage_Type', 'County': 'County', 'ID': 'SubBasin_ID'}
 
     ww_expected_cols = ['Water_Year', 'Plant_Name', 'Treated_Volume_MCM', 'Usage_Type', 'County', 'ID', 'Renewable_Status']
     ww_rename_map = {'Water_Year': 'Water_Year_Str', 'Plant_Name': 'WW_Plant_Name', 'Treated_Volume_MCM': 'Extraction_MCM', 'Usage_Type': 'Usage_Type', 'County': 'County', 'ID': 'SubBasin_ID', 'Renewable_Status': 'Renewable_Status'}
@@ -188,24 +188,12 @@ if authentication_status:
     df_wastewater_raw = load_and_preprocess_data(WASTEWATER_DATA_PATH, ww_expected_cols, ww_rename_map, 'Wastewater', extraction_source_col='Extraction_MCM', id_col_standard='SubBasin_ID', year_col='Water_Year_Str')
 
     df_all_data = pd.concat([df_dam_raw, df_gw_raw, df_transfer_raw, df_wastewater_raw], ignore_index=True)
-
-    # --- Sidebar: Return Coefficients ---
-    st.sidebar.header("ضرایب بازگشت")
-    return_coefficients = {
-        "شهری": st.sidebar.slider("ضریب بازگشت شهری", 0.0, 1.0, 0.3, step=0.01),
-        "کشاورزی": st.sidebar.slider("ضریب بازگشت کشاورزی", 0.0, 1.0, 0.2, step=0.01),
-        "صنعتی": st.sidebar.slider("ضریب بازگشت صنعتی", 0.0, 1.0, 0.4, step=0.01),
-        "خدمات": st.sidebar.slider("ضریب بازگشت خدمات", 0.0, 1.0, 0.5, step=0.01),
-        "سایر": st.sidebar.slider("ضریب بازگشت سایر", 0.0, 1.0, 0.1, step=0.01),
-    }
-
-    # --- Add Return Value Column ---
-    if not df_all_data.empty:
-        df_all_data['Return_Coefficient'] = df_all_data['Usage_Type'].map(return_coefficients).fillna(0)
-        df_all_data['Return_Value'] = df_all_data['Extraction_MCM'] * df_all_data['Return_Coefficient']
+    
 
     # --- Mark Groundwater and Surface Water as Renewable ---
     df_all_data.loc[df_all_data['Source_Type'].isin(['Groundwater', 'Surface']), 'Renewable_Status'] = 'تجدیدپذیر'
+
+    df_all_data.loc[df_all_data['Source_Type'].isin(['Transfer']), 'Renewable_Status'] = 'انتقالی'
 
     # --- Update Chart Labels with Water Year Format ---
     def format_water_year_labels(df, year_col='Water_Year_Str'):
@@ -371,4 +359,243 @@ if authentication_status:
                         fig_scatter = px.scatter(df_scatter, x='Operating_Hours', y='Extraction_MCM', color='Usage_Type', size='Flow_Rate_ls', hover_name='ID', title="برداشت در مقابل ساعات کارکرد (اندازه بر اساس دبی)", labels={'Operating_Hours': 'ساعات کارکرد', 'Extraction_MCM': 'برداشت (میلیون متر مکعب)'})
                         st.plotly_chart(fig_scatter, use_container_width=True)
                     else: st.info("داده‌ای با برداشت و ساعات کارکرد مثبت برای نمودار پراکندگی وجود ندارد.")
-                else: st.info("ستون‌های لازم برای نمودار پراکندگی موجود نیست")
+                else: st.info("ستون‌های لازم برای نمودار پراکندگی موجود نیستند.")
+
+                st.subheader("داده‌های فیلتر شده آب زیرزمینی")
+                st.dataframe(df_gw_viz_filtered)
+            else: st.warning(f"داده‌ای برای آب زیرزمینی با فیلترهای انتخاب شده یافت نشد.")
+
+    @st.cache_data # Cache shapefile reading
+    def load_shapefile(uploaded_file):
+        """Loads a shapefile from an uploaded zip file."""
+        try:
+            zip_buffer = io.BytesIO(uploaded_file.getvalue())
+            with zipfile.ZipFile(zip_buffer) as z:
+                shp_file_path = None
+                for filename in z.namelist():
+                    if filename.lower().endswith(".shp"): shp_file_path = filename; break
+                if shp_file_path is None: st.error("فایل .shp در فایل فشرده یافت نشد."); return None
+                import tempfile
+                with tempfile.TemporaryDirectory() as tmpdir:
+                    z.extractall(path=tmpdir)
+                    shp_full_path = os.path.join(tmpdir, shp_file_path)
+                    if os.path.exists(shp_full_path):
+                        gdf = gpd.read_file(shp_full_path)
+                        if gdf.crs is None: gdf.set_crs("EPSG:4326", inplace=True); st.warning("سیستم مختصات (CRS) برای شیپ‌فایل مشخص نشده بود. EPSG:4326 (WGS84) به عنوان پیش‌فرض در نظر گرفته شد.")
+                        gdf = gdf.to_crs("EPSG:4326")
+                        return gdf
+                    else: st.error("خطا در استخراج یا یافتن فایل .shp در مسیر موقت."); return None
+        except zipfile.BadZipFile: st.error("فایل آپلود شده یک فایل فشرده (zip) معتبر نیست."); return None
+        except ImportError: st.error("کتابخانه geopandas یافت نشد. لطفاً آن را نصب کنید: pip install geopandas"); return None
+        except Exception as e: st.error(f"خطا در خواندن شیپ‌فایل: {e}"); return None
+        
+    def display_water_balance_summary(df_summary_data):
+        """Displays the new water balance summary page with filters, metrics, table, and chart."""
+        st.title("💧 داشبورد حسابداری آب - خلاصه بیلان آب")
+        st.markdown("خلاصه برداشت آب (میلیون متر مکعب - MCM) بر اساس فیلترهای انتخابی.")
+
+        # --- Filters ---
+        col_f1, col_f2, col_f3, col_f4 = st.columns(4)
+        with col_f1: # County
+            county_options = ["همه"]
+            if not df_summary_data.empty and 'County' in df_summary_data.columns: county_options.extend(sorted(list(set(c for c in df_summary_data['County'].dropna().unique() if c != 'نامشخص'))))
+            disabled_county = selected_county_sidebar != "همه"
+            selected_county_summary = st.selectbox("شهرستان", options=county_options, key="county_summary_filter", index=county_options.index(selected_county_sidebar) if disabled_county else 0, disabled=disabled_county)
+            if disabled_county: st.caption(f"فیلتر شهرستان '{selected_county_sidebar}' اعمال شده است.")
+        with col_f2: # Study Area
+            study_areas = ["همه"]
+            df_gw_summary = df_summary_data[df_summary_data['Source_Type'] == 'Groundwater']
+            current_county = selected_county_summary if not disabled_county else selected_county_sidebar
+            if current_county != "همه": df_gw_summary = df_gw_summary[df_gw_summary['County'] == current_county]
+            if not df_gw_summary.empty and 'Study_Area' in df_gw_summary.columns: study_areas.extend(sorted(df_gw_summary['Study_Area'].dropna().unique()))
+            selected_study_area = st.selectbox("محدوده مطالعاتی", options=list(set(study_areas)), key="study_area_filter")
+        with col_f3: # Usage Type
+            usage_types = ["همه"]
+            if not df_summary_data.empty and 'Usage_Type' in df_summary_data.columns: usage_types.extend(sorted(list(set(u for u in df_summary_data['Usage_Type'].dropna().unique() if u != 'نامشخص'))))
+            selected_usage_type = st.selectbox("نوع کاربری", options=usage_types, key="usage_type_filter")
+        with col_f4: # Source Classification
+            source_options_dict = {"همه": "All", "آب سطحی (سد)": "Surface", "آب زیرزمینی": "Groundwater", "آب انتقالی": "Transfer", "تصفیه خانه": "Wastewater"}
+            available_sources = df_summary_data['Source_Type'].unique() if not df_summary_data.empty else []
+            display_source_options = ["همه"] + [k for k, v in source_options_dict.items() if v in available_sources and v != "All"]
+            selected_source_type_display = st.selectbox("طبقه‌بندی منبع", options=display_source_options, key="source_type_filter")
+            selected_source_type_val = source_options_dict.get(selected_source_type_display, "All")
+
+        # Renewable Filter
+        renewable_options = ["همه", "تجدیدپذیر", "تجدیدناپذیر", "نامشخص", "انتقالی"]
+        selected_renewable_status = st.selectbox("تجدیدپذیری", options=renewable_options, key="renewable_filter")
+
+
+        st.header("ضرایب بازگشت")
+
+        col1, col2, col3, col4, col5 = st.columns(5)
+
+        return_coefficients = {
+            "شرب": col1.slider("شرب", 0.0, 1.0, 0.7, step=0.01),
+            "كشاورزي": col2.slider("ضریب بازگشت كشاورزي", 0.0, 1.0, 0.15, step=0.01),
+            "صنعتي": col3.slider("ضریب بازگشت صنعتي", 0.0, 1.0, 0.15, step=0.01),
+            "خدمات": col4.slider("ضریب بازگشت خدمات", 0.0, 1.0, 0.15, step=0.01),
+            "شرب روستايي": col5.slider("ضریب بازگشت شرب روستايي", 0.0, 1.0, 0.15, step=0.01),
+        }
+
+
+        # --- Add Return Value Column ---
+        if not df_summary_data.empty:
+            df_summary_data['Return_Coefficient'] = df_summary_data['Usage_Type'].map(return_coefficients).fillna(0)
+            df_summary_data['Return_Value'] = df_summary_data['Extraction_MCM'] * df_summary_data['Return_Coefficient']
+
+            df_summary_data = df_summary_data.rename(columns={
+                    'Return_Value': 'جریان بازگشتی',
+                })
+
+        # --- Filter data ---
+        df_summary_filtered = df_summary_data.copy()
+        if not disabled_county and selected_county_summary != "همه": df_summary_filtered = df_summary_filtered[df_summary_filtered['County'] == selected_county_summary]
+        if selected_study_area != "همه" and 'Study_Area' in df_summary_filtered.columns: df_summary_filtered = df_summary_filtered[~((df_summary_filtered['Source_Type'] == 'Groundwater') & (df_summary_filtered['Study_Area'] != selected_study_area))]
+        if selected_usage_type != "همه": df_summary_filtered = df_summary_filtered[df_summary_filtered['Usage_Type'] == selected_usage_type]
+        if selected_source_type_val != "All": df_summary_filtered = df_summary_filtered[df_summary_filtered['Source_Type'] == selected_source_type_val]
+        if selected_renewable_status != "همه":
+            if 'Renewable_Status' in df_summary_filtered.columns:
+                status_to_check = ['نامشخص', 'Unknown', None] if selected_renewable_status == "نامشخص" else [selected_renewable_status]
+                df_summary_filtered = df_summary_filtered[df_summary_filtered['Renewable_Status'].isin(status_to_check)]
+            else: st.warning("ستون 'Renewable_Status' برای اعمال فیلتر تجدیدپذیری یافت نشد.")
+
+        # --- Display Metrics (in MCM) ---
+        st.subheader("خلاصه مقادیر برداشت (میلیون متر مکعب - MCM)")
+        metric_col1, metric_col2, metric_col3, metric_col4, metric_col5 = st.columns(5)
+        total_surface = df_summary_filtered[df_summary_filtered['Source_Type'] == 'Surface']['Extraction_MCM'].sum()
+        metric_col1.metric("برداشت آب سطحی (سدها)", f"{total_surface:,.2f}")
+        total_gw = df_summary_filtered[df_summary_filtered['Source_Type'] == 'Groundwater']['Extraction_MCM'].sum()
+        metric_col2.metric("برداشت آب زیرزمینی", f"{total_gw:,.2f}")
+        total_transfer = df_summary_filtered[df_summary_filtered['Source_Type'] == 'Transfer']['Extraction_MCM'].sum()
+        transfer_available = not df_all_data[df_all_data['Source_Type'] == 'Transfer'].empty # Check if data ever existed
+        metric_col3.metric("برداشت آب انتقالی", f"{total_transfer:,.2f}" if transfer_available else "N/A")
+        total_wastewater = df_summary_filtered[df_summary_filtered['Source_Type'] == 'Wastewater']['Extraction_MCM'].sum()
+        wastewater_available = not df_all_data[df_all_data['Source_Type'] == 'Wastewater'].empty # Check if data ever existed
+        metric_col4.metric("تصفیه خانه", f"{total_wastewater:,.2f}" if wastewater_available else "N/A")
+        total_return = df_summary_filtered['جریان بازگشتی'].sum()
+        metric_col5.metric("جریان بازگشتی", f"{total_return:,.2f}")
+
+        # --- Prepare and Display Aggregated Table (in MCM) --- FIX: Aggregate before display
+        st.subheader("جدول خلاصه داده‌های فیلتر شده") # Changed title to reflect aggregation
+        if not df_summary_filtered.empty:
+            # Define columns to group by - ensure they exist
+            group_by_cols = ['طبقه‌بندی منبع', 'نام منبع', 'شناسه زیرحوضه', 'شهرستان', 'کاربری', 'وضعیت تجدیدپذیری', 'جریان بازگشتی']
+            # Rename columns *before* grouping
+            df_renamed_for_grouping = df_summary_filtered.rename(columns={
+                'Extraction_MCM': 'برداشت (MCM)',
+                'ID': 'شناسه زیرحوضه',
+                'Usage_Type': 'کاربری', 'County': 'شهرستان',
+                'Source_Type': 'طبقه‌بندی منبع', 'Source_Name': 'نام منبع',
+                'Renewable_Status': 'وضعیت تجدیدپذیری'
+            })
+            # Ensure all group columns exist
+            actual_group_cols = [col for col in group_by_cols if col in df_renamed_for_grouping.columns]
+
+            if 'برداشت (MCM)' in df_renamed_for_grouping.columns and actual_group_cols:
+                # Aggregate the data
+                aggregated_table = df_renamed_for_grouping.groupby(actual_group_cols, observed=False)['برداشت (MCM)'].sum().reset_index()
+
+                # Display the aggregated table
+                st.dataframe(aggregated_table[actual_group_cols + ['برداشت (MCM)']].style.format({'برداشت (MCM)': '{:,.2f}'}))
+
+                # --- Chart Generation (based on aggregated data) ---
+                st.divider()
+                st.subheader("نمودار داده‌های خلاصه شده")
+                if not aggregated_table.empty:
+                    chart_type = st.radio("انتخاب نوع نمودار:", ('میله‌ای', 'خطی', 'دایره‌ای'), key="chart_select", horizontal=True)
+                    try:
+                        plot_data = aggregated_table.copy()
+                        plot_data['برداشت (MCM)'] = pd.to_numeric(plot_data['برداشت (MCM)'], errors='coerce').fillna(0)
+                        if chart_type == 'میله‌ای':
+                            fig_chart = px.bar(plot_data, x='شهرستان', y='برداشت (MCM)', color='طبقه‌بندی منبع', title="برداشت تجمیعی (MCM) بر اساس شهرستان و طبقه‌بندی منبع", labels={'شهرستان': 'شهرستان', 'برداشت (MCM)': 'مجموع برداشت (میلیون متر مکعب)', 'طبقه‌بندی منبع': 'طبقه‌بندی منبع'}, barmode='group')
+                            fig_chart.update_layout(xaxis={'categoryorder':'total descending'})
+                            st.plotly_chart(fig_chart, use_container_width=True)
+                        elif chart_type == 'خطی':
+                            if len(selected_water_years) > 1:
+                                line_plot_data = df_summary_filtered.groupby(['Water_Year_Str', 'Source_Type'])['Extraction_MCM'].sum().reset_index()
+                                fig_chart = px.line(line_plot_data, x='Water_Year_Str', y='Extraction_MCM', color='Source_Type', title="روند برداشت (MCM) در طول زمان بر اساس نوع منبع", labels={'Water_Year_Str': 'سال آبی', 'Extraction_MCM': 'مجموع برداشت (میلیون متر مکعب)', 'Source_Type': 'نوع منبع'}, markers=True).update_xaxes(categoryorder='array', categoryarray=sorted(line_plot_data['Water_Year_Str'].unique()))
+                                st.plotly_chart(fig_chart, use_container_width=True)
+                            else: st.warning("نمودار خطی برای نمایش روند، نیاز به انتخاب حداقل دو سال آبی در فیلتر عمومی دارد.")
+                        elif chart_type == 'دایره‌ای':
+                            pie_col = st.selectbox("نمایش توزیع بر اساس:", ('طبقه‌بندی منبع', 'کاربری', 'شهرستان'), key="pie_col_select")
+                            if pie_col in plot_data.columns:
+                                pie_data = plot_data.groupby(pie_col)['برداشت (MCM)'].sum().reset_index()
+                                # Filter out zero values for better pie chart visibility
+                                pie_data = pie_data[pie_data['برداشت (MCM)'] > 0]
+                                if not pie_data.empty:
+                                    fig_chart = px.pie(pie_data, names=pie_col, values='برداشت (MCM)', title=f"توزیع درصد برداشت (MCM) بر اساس {pie_col}", hole=0.3)
+                                    fig_chart.update_traces(textposition='inside', textinfo='percent+label')
+                                    st.plotly_chart(fig_chart, use_container_width=True)
+                                else:
+                                    st.warning(f"داده‌ای با مقدار برداشت مثبت برای نمایش نمودار دایره‌ای بر اساس '{pie_col}' وجود ندارد.")
+                            else: st.warning(f"ستون '{pie_col}' برای رسم نمودار دایره‌ای در داده‌های تجمیع شده یافت نشد.")
+                    except Exception as e: st.error(f"خطا در رسم نمودار: {e}")
+                else: st.warning("داده‌ای در جدول خلاصه برای رسم نمودار وجود ندارد.")
+
+                # --- Shapefile Upload and Map Display ---
+                st.divider()
+                st.subheader("نقشه محدوده و برداشت")
+                uploaded_shp_zip = st.file_uploader("آپلود شیپ‌فایل محدوده (فایل .zip)", type="zip", key="shp_uploader")
+                if uploaded_shp_zip is not None:
+                    gdf = load_shapefile(uploaded_shp_zip)
+                    if gdf is not None:
+                        st.success("شیپ‌فایل با موفقیت بارگذاری و خوانده شد.")
+                        shp_cols = gdf.columns.tolist()
+                        likely_id_cols = [col for col in shp_cols if col.upper() in ('ID', 'SUBBASINID', 'SUBBASIN_I', 'IDENTIFIER', 'CODE')]
+                        default_index = shp_cols.index(likely_id_cols[0]) if likely_id_cols else 0
+                        id_col_shp = st.selectbox("انتخاب ستون شناسه (ID) در شیپ‌فایل برای اتصال:", options=shp_cols, index=default_index)
+
+                        if id_col_shp and not aggregated_table.empty:
+                            try:
+                                map_data = aggregated_table[['شناسه زیرحوضه', 'برداشت (MCM)']].copy()
+                                map_data['شناسه زیرحوضه'] = map_data['شناسه زیرحوضه'].astype(str)
+                                map_data_agg = map_data.groupby('شناسه زیرحوضه')['برداشت (MCM)'].sum().reset_index()
+                                gdf_map = gdf[[id_col_shp, 'geometry']].copy()
+                                gdf_map[id_col_shp] = gdf_map[id_col_shp].astype(str)
+                                merged_gdf = gdf_map.merge(map_data_agg, left_on=id_col_shp, right_on='شناسه زیرحوضه', how='left')
+                                merged_gdf['برداشت (MCM)'] = merged_gdf['برداشت (MCM)'].fillna(0)
+
+                                # Classification
+                                color_col = 'برداشت (MCM)'
+                                color_map = "Viridis"
+                                try:
+                                    non_zero_values = merged_gdf['برداشت (MCM)'][merged_gdf['برداشت (MCM)'] > 0]
+                                    if non_zero_values.nunique() >= 4:
+                                        merged_gdf['کلاس_برداشت'] = pd.qcut(non_zero_values, q=4, labels=False, duplicates='drop')
+                                        merged_gdf['کلاس_برداشت'] = 'کلاس ' + (merged_gdf['کلاس_برداشت'] + 1).astype(str)
+                                        merged_gdf['کلاس_برداشت'].fillna('بدون برداشت', inplace=True)
+                                        color_col = 'کلاس_برداشت'
+                                    else: st.info("تعداد مقادیر منحصر به فرد برای طبقه‌بندی کوانتایل کافی نیست. از مقادیر خام استفاده می‌شود.")
+                                except Exception as e_class: st.warning(f"خطا در طبقه‌بندی داده‌ها: {e_class}. از مقادیر خام استفاده می‌شود.")
+
+                                # Plot Map
+                                st.write("نقشه رنگ‌بندی شده بر اساس برداشت (MCM):")
+                                try: center_lat = merged_gdf.geometry.centroid.y.mean(); center_lon = merged_gdf.geometry.centroid.x.mean()
+                                except: center_lat = 36.0; center_lon = 58.0
+                                fig_map = px.choropleth_mapbox(merged_gdf, geojson=merged_gdf.geometry, locations=merged_gdf.index, color=color_col,
+                                                            mapbox_style="carto-positron", zoom=7, center={"lat": center_lat, "lon": center_lon}, opacity=0.6,
+                                                            hover_name=id_col_shp, hover_data={'برداشت (MCM)': ':.2f'},
+                                                            color_continuous_scale=color_map if color_col == 'برداشت (MCM)' else None,
+                                                            category_orders={'کلاس_برداشت': sorted(merged_gdf['کلاس_برداشت'].unique())} if color_col == 'کلاس_برداشت' else None,
+                                                            title="نقشه برداشت بر اساس زیرحوضه")
+                                fig_map.update_layout(margin={"r":0,"t":30,"l":0,"b":0})
+                                st.plotly_chart(fig_map, use_container_width=True)
+                            except KeyError as e: st.error(f"خطا در اتصال داده‌ها به شیپ‌فایل: ستون شناسه '{e}' یافت نشد.")
+                            except Exception as e: st.error(f"خطا در ایجاد نقشه: {e}")
+                        else: st.warning("لطفاً ستون شناسه در شیپ‌فایل را انتخاب کنید و مطمئن شوید داده‌ای برای اتصال وجود دارد.")
+
+
+    # --- Main App Logic ---
+    if app_mode == "تحلیل جزئی":
+        display_detailed_analysis(df_dam_detailed, df_gw_detailed)
+    elif app_mode == "خلاصه بیلان آب":
+        display_water_balance_summary(df_filtered)
+
+    # --- Footer ---
+    st.sidebar.divider()
+    st.sidebar.info("Created by Mahdi Mohammadnezhad")
+# --- Handle Authentication Status ---
+elif authentication_status == False:
+    st.error('نام کاربری یا رمز عبور اشتباه است')
+elif authentication_status == None:
+    st.warning('لطفاً نام کاربری و رمز عبور خود را وارد کنید')
